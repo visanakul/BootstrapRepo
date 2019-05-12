@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8">
 
-<title>Bootstrap 101 Template</title>
+<title>Nested Row Column</title>
 <style type="text/css">
-img {
-	background-color: black;
-	height: auto;
-	width: 100%;
-	color: white;
-	margin: 0;
-	padding: 0;
-	color: white;
+.side-bar, .main-bar {
+	margin-bottom: 10px;
+	min-height: 150px;
+	text-align: center;
+	font-size: large;
+	background-color: silver;
 }
+
+.main-bar {
+	min-height: 310px;
+}
+
+
 </style>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,24 +32,45 @@ img {
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 offset-md-4 col-lg-6 offset-lg-6 col-sm-6 offset-sm-0 col-4 offset-4">
+			<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="side-bar">Demo Text</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="side-bar">Demo Text</div>
+					</div>
+				</div>
 
-				<img src="img/Koala.jpg" class="img-fluid" />
 			</div>
-
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-lg-6 col-sm-6 col-4 offset-0">
-
-				<img src="img/Jellyfish.jpg" class="img-fluid" />
-
-			</div>
-
-			<div class="col-md-4 offset-md-4 col-lg-6 offset-lg-0 col-sm-6 offset-sm-0 col-4 offset-4">
-				<img src="img/Hydrangeas.jpg" class="img-fluid" />
+			<div class="col-md-8">
+				<div class="main-bar">Demo Text</div>
 			</div>
 		</div>
 	</div>
+
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="side-bar">Col 5 </div>
+			</div>
+			<div class="col-md-7">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="side-bar">Col 3.5</div>
+					</div>
+				
+					<div class="col-md-6">
+						<div class="side-bar">Col 3.5</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

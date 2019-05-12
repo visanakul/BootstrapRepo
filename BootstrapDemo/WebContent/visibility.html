@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+.demo {
+	background-color: lime;
+	height: 50px;
+}
+</style>
+<title>Visibilty</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<span class="demo d-block">Block Text</span> <span>Outside
+					Text</span>
+			</div>
+			<div class="col-md-4">
+				<span class="demo d-inline">Inline Text</span> <span>Outside
+					Text</span>
+			</div>
+			<div class="col-md-4">
+				<span class="demo d-inline-block">Inline BlockText</span> <span>Outside
+					Text</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<span class="demo d-none">Hidden on all</span>
+			</div>
+
+			<div class="col-md-4">
+				<span class="demo d-block">Visible on all!</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="demo d-none d-sm-block">
+					<span>Hidden on xs</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="demo d-none d-md-block">
+					<span>Hidden on xs and sm</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="demo d-none d-lg-block">
+					<span>Hidden on xs,sm and md</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="demo d-block d-sm-none">
+					<span>Visible on xs</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="demo d-block d-md-none">
+					<span>Visible on xs and md</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="demo d-block d-lg-none">
+					<span>Visible on xs,sm and md</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="demo d-print-none">
+					<span>Only on Screen</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="demo d-none d-print-block">
+					<span>Only in Print</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

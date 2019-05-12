@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Bootstrap 101 Template</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div class="container">
+		<h1>Code snippet</h1>
+		<p>
+			The languages
+			<code>C</code>
+			,
+			<code>CPP</code>
+			and
+			<code>Java</code>
+			are very popular
+		</p>
+		<hr />
+		var
+		<var>x</var>
+		=
+		<var>y</var>
+		+
+		<var>z</var>
+		; <br />
+		<h4>Output</h4>
+		<samp>Welcome to Java!!!</samp>
+		<br /> <br />
+		<pre>
+First line.<b>Hello</b>
+Second line.
+Third line.
+</pre>
+		<h2>JDBC Program</h2>
+		<pre class="pre-scrollable">
+		
+import java.sql.*;
+import java.util.*;
+class DbOpDemo
+{
+	Connection con;
+	Statement stm;
+	ResultSet rs;
+	Scanner sc;
+
+	DbOpDemo()
+	{
+	try{
+	Driver d=new sun.jdbc.odbc.JdbcOdbcDriver();
+	DriverManager.registerDriver(d);
+
+	con=DriverManager.getConnection("jdbc:odbc:MyAccessDSN","admin","admin123");
+	stm=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+	rs=stm.executeQuery("Select * from Info");
+	sc=new Scanner(System.in);
+	}catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	}
+
+	void display()
+	{
+	try{
+	rs.beforeFirst();
+	while(rs.next())
+	{
+	System.out.println("\nRoll : "+rs.getInt(1));
+	System.out.println("Name : "+rs.getString(2));
+	System.out.println("Percentage : "+rs.getFloat(3));
+	}
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	}
+
+	void search()
+	{
+	try{
+	System.out.println("Enter Roll Number : ");
+	int roll=sc.nextInt();
+	rs.beforeFirst();
+	
+	while(rs.next())
+	{
+	if(rs.getInt(1)==roll)
+	{
+	System.out.println("\nRoll : "+roll);
+	System.out.println("Name : "+rs.getString(2));
+	System.out.println("Percentage : "+rs.getFloat(3));
+	return;
+	}
+	}
+	System.out.println("Record Not Found...");
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	}
+
+	void delete()
+	{
+	try{
+	System.out.println("Enter Roll Number : ");
+	int roll=sc.nextInt();
+	rs.beforeFirst();
+	
+	while(rs.next())
+	{
+	if(rs.getInt(1)==roll)
+	{
+	rs.deleteRow();
+	System.out.println("Record Deleted...");
+	return;
+	}
+	}
+	System.out.println("Record Not Found...");
+	
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	}
+
+	void update()
+	{
+	try{
+	System.out.println("Enter roll : ");
+	int roll=sc.nextInt();
+
+	System.out.println("Enter Name : ");
+	String nm=sc.next();
+
+	System.out.println("Enter Percentage : ");
+	float per=sc.nextFloat();
+
+	rs.beforeFirst();
+	while(rs.next())
+	{
+	if(rs.getInt(1)==roll)
+	{
+	rs.updateString(2,nm);
+	rs.updateFloat(3,per);
+	rs.updateRow();
+	System.out.println("Record updated...");
+	return;
+	}
+	}
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	}
+
+	void insert()
+	{
+	try{
+	
+	rs.last();
+	int roll=rs.getInt(1)+1;
+
+	System.out.println("Enter Name : ");
+	String nm=sc.next();
+
+	System.out.println("Enter Percentage : ");
+	float per=sc.nextFloat();
+
+	rs.moveToInsertRow();
+	rs.updateInt(1,roll);
+	rs.updateString(2,nm);
+	rs.updateFloat(3,per);
+	rs.insertRow();
+	System.out.println("Record Inserted...");
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	}
+
+	public static void main(String... args)
+	{
+	DbOpDemo db;
+	try{
+	db=new DbOpDemo();
+	
+	while(true)
+	{
+	System.out.println("\n1.Display\n2.Search\n3.Insert\n4.Delete\n5.Update\n6.Exit\nEnter Option : ");
+	int op=db.sc.nextInt();
+	switch(op)
+	{
+	case 1:db.display();break;
+	case 2:db.search();break;
+	case 3:db.insert();break;
+	case 4:db.delete(); break;
+	case 5:db.update();break;
+	case 6:System.exit(0);
+	}
+	}
+	}catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	}
+}
+</pre>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
